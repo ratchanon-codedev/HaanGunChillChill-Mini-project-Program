@@ -1,12 +1,22 @@
-// Online C compiler to run C program online
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+
+//fuction to set my number output of person
+void oringinal_number(int number,char* og_number_string){
+    switch (number){
+        case 1 : strcpy(og_number_string,"st"); break;
+        case 2 : strcpy(og_number_string,"nd"); break;
+        case 3 : strcpy(og_number_string,"rd"); break;
+        default: strcpy(og_number_string,"th"); break;
+    }
+}
 
 int main() {
-    // Write C code here
+    //Write C code here
     int Num_person;
     int i;
-    char original_number[3],condition;
+    char og_number_string[3],condition;
     int discount,sum_price = 0;
     
     do {
@@ -17,13 +27,8 @@ int main() {
         float price_person[Num_person];
             
         for(i=1;i<=Num_person;i++){
-            switch (i){
-                case 1 : strcpy(original_number,"st"); break;
-                case 2 : strcpy(original_number,"nd"); break;
-                case 3 : strcpy(original_number,"rd"); break;
-                default: strcpy(original_number,"th"); break;
-            }
-            printf("Enter %d%s person (bath): ",i,original_number);
+            oringinal_number(i,og_number_string);
+            printf("Enter %d%s person (bath): ",i,og_number_string);
             scanf("%f",&price_person[i-1]);
         }
             
@@ -42,13 +47,8 @@ int main() {
         //output price
         printf("-----------------------------------------------------------------\n");
         for(i=1;i<=Num_person;i++){
-            switch (i){
-                case 1 : strcpy(original_number,"st"); break;
-                case 2 : strcpy(original_number,"nd"); break;
-                case 3 : strcpy(original_number,"rd"); break;
-                default: strcpy(original_number,"th"); break;
-            }
-            printf("%d%s person real price %.2f(bath)\n",i,original_number,price_person[i-1]);
+            oringinal_number(i,og_number_string);
+            printf("%d%s person real price %.2f(bath)\n",i,og_number_string,price_person[i-1]);
         }
         printf("-----------------------------------------------------------------\n");
         
